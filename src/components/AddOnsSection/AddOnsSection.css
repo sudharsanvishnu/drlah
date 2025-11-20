@@ -1,0 +1,112 @@
+  .add-ons-section {
+    margin: 0px;
+    padding: 20px 40px;
+  }
+
+  .add-ons-flex{
+    display: flex;
+    justify-content: space-between;
+  }  
+
+  .add-on-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: #fcfcfc;
+    padding: 14px;
+    min-width: 410px;
+    border: 1px solid #E6E6E6;
+    border-radius: 8px;
+    position: relative;
+  }
+  
+  /* Large laptops (MacBook Air/Pro) */
+  @media (max-width: 1536px) {
+    .add-on-label {
+      min-width: 360px;
+    }
+  }
+  
+  /* Medium laptops / tablets */
+  @media (max-width: 1280px) {
+    .add-on-label {
+      min-width: 340px;
+    }
+  }
+  
+  /* Tablets */
+  @media (max-width: 1024px) {
+    .add-on-label {
+      min-width: 280px;
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+    .add-on-label {
+      min-width: 100%; /* auto-fit full width on mobile */
+    }
+  }
+  
+  
+  /* Hide the default radio button */
+  .add-on-radio {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: absolute;
+    opacity: 0;
+  }
+  
+  /* Custom radio button styling */
+  .custom-radio {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--border-light);
+    display: inline-block;
+    position: relative;
+    margin-left: auto; /* Push to the right */
+    transition: all 0.2s ease-in-out;
+    flex-shrink: 0; /* Prevent it from shrinking */
+  }
+  
+  /* Style for when the custom radio button is checked */
+  .add-on-radio:checked + .add-on-text + .custom-radio {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color); /* Fill background when checked */
+  }
+  
+  /* Inner dot for the checked radio button */
+  .add-on-radio:checked + .add-on-text + .custom-radio::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--background-white); /* Inner dot color */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+  }
+  
+  /* Hover effect for the custom radio button */
+  .add-on-label:hover .custom-radio {
+    border-color: var(--primary-color);
+  }
+  
+  .add-on-text {
+    color:  var(--primary-color);
+  }
+  
+  .add-on-coming-soon{
+    background-color:#E8E8E8;
+    border-radius: 4px;
+    padding:4px;
+    font-size: 12px;
+    color:#7C7C7C;
+    position: absolute;
+    top:-10px
+  }

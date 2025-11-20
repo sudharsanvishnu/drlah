@@ -1,0 +1,97 @@
+.plan-card {
+  flex: 1;
+  max-width: 297px;
+  border: 1px solid #E6E6E6;
+  border-radius: 8px;
+  padding: 14px;
+  text-align: left;
+  cursor: pointer;
+  background-color: #fcfcfc;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Large laptops (MacBook Air/Pro) */
+@media (max-width: 1536px) {
+  .plan-card {
+    max-width: 260px;
+  }
+}
+
+/* Medium laptops / tablets */
+@media (max-width: 1280px) {
+  .plan-card {
+    max-width: 230px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .plan-card {
+    max-width: 200px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .plan-card {
+    max-width: 100%; /* full width on mobile */
+  }
+}
+
+  .plan-card:hover {
+    border-color: var(--primary-color);
+  }
+  
+  .plan-card.selected {
+    border-color: #00A3AD;
+    background-color: #F2FAFB; 
+  }
+  
+  .plan-card-title {
+    font-size: 22px;
+    color: var(--primary-color);
+  }
+  
+  .plan-card-features {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: flex-start; /* Align text to top if it wraps */
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--tertiary-color);
+  }
+  
+  .feature-icon {
+    margin-right: 8px;
+    font-size: 12px;
+    width: 12px;
+    color: #4A4A4A; /* Icon color */
+  }
+
+  .feature-text{
+    font-size: 14px;
+    color: #4A4A4A;
+  }
+  
+  .plan-card-price-container {
+    margin-top: auto;
+  }
+  
+  .plan-card-price {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary-color);
+  }
+  
+  .plan-card-period {
+    font-size: 14px;
+    color: var(--primary-color);
+    margin-left: 0px;
+  }
+  

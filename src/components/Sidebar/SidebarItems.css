@@ -1,0 +1,91 @@
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 22px;
+    color: var(--primary-color); 
+    position: relative;
+    margin-bottom: 30px;
+    transition: color 0.2s ease-in-out;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  /* Large laptops (MacBook Air/Pro) */
+  @media (max-width: 1536px) {
+    .sidebar-item {
+       margin-bottom: 20px;
+    }
+  }
+  
+  /* Medium laptops / tablets */
+  @media (max-width: 1280px) {
+    .sidebar-item {
+       margin-bottom: 20px;
+    }
+  }
+  
+  /* Tablets */
+  @media (max-width: 1024px) {
+    .sidebar-item {
+       margin-bottom: 20px;
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+    .sidebar-item {
+       margin-bottom: 20%; /* auto-fit full width on mobile */
+    }
+  }
+  
+  
+  .sidebar-item.active {
+    color: var(--secondary-teal-color); 
+    font-weight: 700;
+  }
+
+  .sidebar-item.inactive{
+    color: #B2B2B2; /* Active item text color */
+    font-weight: 500;
+  }
+  
+  /* Vertical bar for the active item */
+  .sidebar-item-left-line {
+    height: 46px;
+    width: 4px; /* Vertical bar width */
+    background-color: var(--secondary-teal-color);
+    border-radius: 2px;
+    margin-left: -10px;
+    position: absolute;
+  }
+  
+  .sidebar-item-name {
+    flex-grow: 1;
+  }
+  
+  
+  .check-icon {
+    width: 18px;
+    height: 18px;
+    background-color: #005f73;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-right: 20px;
+  }
+  
+  .check-icon::before {
+    content: "";
+    width: 7px;
+    height: 3px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 6px;     /* slight vertical adjustment */
+    left: 4pxx;    /* slight horizontal adjustment */
+  }
+  

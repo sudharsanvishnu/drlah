@@ -1,0 +1,21 @@
+.info-section {
+    padding: 20px 40px;
+  }
+  
+  .info-link {
+    font-size: 20px;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+  }
+  
+  .info-text {
+    font-size: 20px;
+    color: var(--secondary-color);
+    line-height: 1;
+  }
+  
+  .info-teal-color-text{
+    color:#00A3AD;
+    text-decoration: underline;
+    cursor: pointer;
+  }

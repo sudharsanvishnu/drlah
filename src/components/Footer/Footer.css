@@ -1,0 +1,86 @@
+.footer-container{
+    background-color: #FFFFFF ;
+    box-shadow: 0px -3px 6px #00000014;;
+    padding: 20px 0px;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+    z-index: 1000;
+}
+
+.footer-buttons{
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    padding: 0 64px;
+    margin-right: 18%;
+}
+
+.footer-button{
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 16px 48px;
+    cursor: pointer;
+    border: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-button:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.back-button{
+    background-color: transparent;
+    color: #026786;
+    border: 2px solid #026786;
+}
+
+.next-button{
+    background-color: #FFCD05;
+    color:#026786;
+}
+
+  /* Large laptops (MacBook Air/Pro) */
+  @media (max-width: 1536px) {
+    .footer-button {
+        padding: 14px 40px;
+    }
+    .footer-buttons{
+        margin-right: 8%;
+    }
+  }
+  
+  /* Medium laptops / tablets */
+  @media (max-width: 1280px) {
+    .footer-button {
+        padding: 12px 32px;
+    }
+  }
+  
+  /* Tablets */
+  @media (max-width: 1024px) {
+    .footer-buttons{
+        padding: 0 32px;
+    }
+
+    .footer-button {
+        padding: 10px 24px;
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+    .footer-buttons{
+        flex-direction: column-reverse;
+        padding: 0 16px;
+    }
+
+    .footer-button {
+        width: 100%;
+    }
+  }
+  
+  

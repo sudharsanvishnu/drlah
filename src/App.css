@@ -1,0 +1,72 @@
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  width: 100%;
+}
+
+
+.page-wrapper {
+  background-color: #FCFCFC;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main container for the sidebar and main content, acting as the overall white card */
+.app-container {
+  display: flex;
+  overflow: hidden; 
+  flex: 1;
+  padding: 0 360px; 
+}
+
+/* Large laptops (MacBook Air/Pro) */
+@media (max-width: 1536px) { /* covers 1440px widths too */
+  .app-container {
+    padding: 0 160px;
+  }
+}
+
+/* Medium laptops / tablets */
+@media (max-width: 1280px) {
+  .app-container {
+    padding: 0 160px;
+  }
+}
+
+/* Small tablets */
+@media (max-width: 1024px) {
+  .app-container {
+    padding: 0 80px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0 20px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 0 10px;
+  }
+}
+
+
+:root {
+  --primary-color: #026786; /* Teal/Blue for highlights */
+  --secondary-teal-color:#00A3AD;
+  --secondary-color: #4A4A4A/* Dark grey for main text */
+  --tertiary-color: #4A4A4A; /* Lighter grey for secondary text */
+  --background-light: rgb(248, 249, 250); 
+  --background-white: #ffffff; /* White background for content */
+  --border-light: rgb(222, 226, 230); /* Light border */
+  --border-active: var(--primary-color);
+  --shadow-light: rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
