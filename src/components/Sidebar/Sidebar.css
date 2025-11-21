@@ -4,45 +4,43 @@
     box-sizing: border-box;
     position: fixed;
   } */
-  
-  .sidebar-nav {
-    list-style: none;
-    padding-left: 10px; 
-  }
-  
+
+.sidebar-nav {
+  list-style: none;
+  padding-left: 10px;
+}
+
+.sidebar {
+  width: 200px;
+  margin-top: 100px;
+  box-sizing: border-box;
+  position: fixed;
+}
+
+/* Large laptops (MacBook Air/Pro) */
+@media (max-width: 1536px) {
   .sidebar {
-    width: 200px;
-    margin-top: 100px;
-    box-sizing: border-box;
-    position: fixed;
+    margin-top: 60px;
   }
-  
-  /* Large laptops (MacBook Air/Pro) */
-  @media (max-width: 1536px) {
-    .sidebar {
-      margin-top: 60px;
-    }
+}
+
+/* Medium laptops / tablets */
+@media (max-width: 1280px) {
+  .sidebar {
+    margin-top: 40px;
   }
-  
-  /* Medium laptops / tablets */
-  @media (max-width: 1280px) {
-    .sidebar {
-      margin-top: 40px;
-    }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .sidebar {
+    margin-top: 30px;
   }
-  
-  /* Tablets */
-  @media (max-width: 1024px) {
-    .sidebar {
-      margin-top: 30px;
-    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none; /* Hide sidebar on mobile */
   }
-  
-  /* Mobile */
-  @media (max-width: 768px) {
-    .sidebar {
-      position: relative; /* prevents overlap */
-      margin-top: 20px;
-    }
-  }
-  
+}

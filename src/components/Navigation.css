@@ -1,10 +1,17 @@
 .navigation {
-  background-color: #00A3AD;
+  background-color: #00a3ad;
   padding: 12px 0px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
+}
+
+/* Mobile - ensure navigation has high z-index */
+@media (max-width: 768px) {
+  .navigation {
+    z-index: 10000; /* Very high z-index for mobile navigation */
+  }
 }
 
 .nav-container {
@@ -50,4 +57,123 @@
   height: 34px;
   border-radius: 40px;
   cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 16px;
+  }
+
+  .hamburger-menu {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  .hamburger-line {
+    width: 24px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger-line.open:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+
+  .hamburger-line.open:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-line.open:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  .nav-logo {
+    width: 120px;
+    height: auto;
+    grid-column: 2;
+    justify-self: center;
+    margin: 0 auto;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: #00a3ad;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 80px 2rem 2rem;
+    align-items: flex-start;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999 !important; /* Very high z-index to ensure it's above footer */
+    margin: 0;
+    list-style: none;
+  }
+
+  .nav-menu.open {
+    right: 0;
+  }
+
+  .nav-link {
+    font-size: 18px;
+    padding: 0.5rem 0;
+    width: 100%;
+    display: block;
+  }
+
+  .nav-icon-desktop {
+    display: none; /* Hide user icon from menu on mobile */
+  }
+
+  .nav-icon-mobile {
+    width: 34px;
+    height: 34px;
+    border-radius: 40px;
+    cursor: pointer;
+    grid-column: 3;
+    justify-self: end;
+    display: block !important;
+  }
+
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998 !important; /* Above footer but below menu */
+  }
+}
+
+/* Desktop - hide hamburger and mobile icon */
+@media (min-width: 769px) {
+  .hamburger-menu {
+    display: none !important;
+  }
+
+  .nav-icon-mobile {
+    display: none !important;
+  }
 }

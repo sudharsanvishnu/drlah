@@ -24,20 +24,23 @@ const Footer = ({
     }
 
     const { cardNumber, expiry, cvc } = cardDetails;
-    
+
     // Validate card number: should have 16 digits (after removing spaces)
     const cardNumberDigits = cardNumber?.replace(/\s/g, "") || "";
-    const isValidCardNumber = cardNumberDigits.length === 16 && /^\d+$/.test(cardNumberDigits);
-    
+    const isValidCardNumber =
+      cardNumberDigits.length === 16 && /^\d+$/.test(cardNumberDigits);
+
     // Validate expiry: should be in MM/YY format (5 characters)
-    const isValidExpiry = expiry?.trim()?.length === 5 && 
+    const isValidExpiry =
+      expiry?.trim()?.length === 5 &&
       /^\d{2}\/\d{2}$/.test(expiry?.trim() || "");
-    
+
     // Validate CVC: should be 3 or 4 digits
-    const isValidCvc = cvc?.trim()?.length >= 3 && 
-      cvc?.trim()?.length <= 4 && 
+    const isValidCvc =
+      cvc?.trim()?.length >= 3 &&
+      cvc?.trim()?.length <= 4 &&
       /^\d+$/.test(cvc?.trim() || "");
-    
+
     return isValidCardNumber && isValidExpiry && isValidCvc;
   }, [cardDetails]);
 

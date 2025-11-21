@@ -4,6 +4,7 @@ import MainContent from "../components/MainContent/MainContent.js";
 import "../App.css";
 import Footer from "../components/Footer/Footer.js";
 import DeviceInfo from "../components/Device/DeviceInfo.js";
+import SkeletonLoader from "../components/SkeletonLoader/SkeletonLoader.js";
 
 const STATIC_SIDEBAR_ITEMS = [
   { name: "Location", completed: true },
@@ -23,6 +24,7 @@ const STEPS = {
 
 function Home() {
   const [activeStep, setActiveStep] = useState(STEPS.SUBSCRIPTION);
+  const [isLoading, setIsLoading] = useState(true);
 
   const sidebarItems = useMemo(() => {
     const isSubscriptionStep = activeStep === STEPS.SUBSCRIPTION;
@@ -43,10 +45,21 @@ function Home() {
     ];
   }, [activeStep]);
 
+  // Simulate initial loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500); // Show skeleton for 1.5 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
   // Scroll to top when step changes
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [activeStep]);
+    if (!isLoading) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [activeStep, isLoading]);
 
   const handleNextStep = () => {
     if (activeStep !== STEPS.DEVICE) {
@@ -97,6 +110,10 @@ function Home() {
       period: "/month",
     },
   ];
+
+  if (isLoading) {
+    return <SkeletonLoader />;
+  }
 
   return (
     <div className="page-wrapper">

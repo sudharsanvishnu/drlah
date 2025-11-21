@@ -1,21 +1,38 @@
 .info-section {
-    padding: 20px 40px;
+  padding: 20px 40px;
+}
+
+.info-link {
+  font-size: 20px;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.info-text {
+  font-size: 20px;
+  color: var(--secondary-color);
+  line-height: 1;
+}
+
+.info-teal-color-text {
+  color: #00a3ad;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .info-section {
+    padding: 20px 12px; /* Reduced horizontal padding for mobile */
   }
-  
+
   .info-link {
-    font-size: 20px;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
+    font-size: 16px; /* Reduced link font size for mobile */
+    margin-bottom: 0.75rem;
   }
-  
+
   .info-text {
-    font-size: 20px;
-    color: var(--secondary-color);
-    line-height: 1;
+    font-size: 16px; /* Reduced text font size for mobile */
+    line-height: 1.4; /* Better line height for mobile */
   }
-  
-  .info-teal-color-text{
-    color:#00A3AD;
-    text-decoration: underline;
-    cursor: pointer;
-  }
+}

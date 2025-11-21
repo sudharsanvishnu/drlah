@@ -1,112 +1,140 @@
+.add-ons-section {
+  margin: 0px;
+  padding: 20px 40px;
+}
+
+.add-ons-flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.add-on-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: #fcfcfc;
+  padding: 14px;
+  min-width: 410px;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Large laptops (MacBook Air/Pro) */
+@media (max-width: 1536px) {
+  .add-on-label {
+    min-width: 360px;
+  }
+}
+
+/* Medium laptops / tablets */
+@media (max-width: 1280px) {
+  .add-on-label {
+    min-width: 340px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .add-on-label {
+    min-width: 280px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
   .add-ons-section {
-    margin: 0px;
-    padding: 20px 40px;
+    padding: 20px 12px; /* Reduced horizontal padding for mobile */
   }
 
-  .add-ons-flex{
-    display: flex;
-    justify-content: space-between;
-  }  
+  .add-ons-flex {
+    flex-direction: column; /* Stack add-ons vertically on mobile */
+    gap: 16px; /* Proper spacing between add-on items */
+    width: 100%;
+  }
 
   .add-on-label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    font-size: 20px;
-    background-color: #fcfcfc;
-    padding: 14px;
-    min-width: 410px;
-    border: 1px solid #E6E6E6;
-    border-radius: 8px;
-    position: relative;
+    min-width: 100%; /* auto-fit full width on mobile */
+    width: 100%;
+    margin-bottom: 0;
+    font-size: 14px; /* Reduced font for mobile */
+    padding: 12px; /* Slightly reduced padding for mobile */
+    flex-wrap: wrap; /* Allow text to wrap */
   }
-  
-  /* Large laptops (MacBook Air/Pro) */
-  @media (max-width: 1536px) {
-    .add-on-label {
-      min-width: 360px;
-    }
-  }
-  
-  /* Medium laptops / tablets */
-  @media (max-width: 1280px) {
-    .add-on-label {
-      min-width: 340px;
-    }
-  }
-  
-  /* Tablets */
-  @media (max-width: 1024px) {
-    .add-on-label {
-      min-width: 280px;
-    }
-  }
-  
-  /* Mobile */
-  @media (max-width: 768px) {
-    .add-on-label {
-      min-width: 100%; /* auto-fit full width on mobile */
-    }
-  }
-  
-  
-  /* Hide the default radio button */
-  .add-on-radio {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    position: absolute;
-    opacity: 0;
-  }
-  
-  /* Custom radio button styling */
-  .custom-radio {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    border: 2px solid var(--border-light);
-    display: inline-block;
-    position: relative;
-    margin-left: auto; /* Push to the right */
-    transition: all 0.2s ease-in-out;
-    flex-shrink: 0; /* Prevent it from shrinking */
-  }
-  
-  /* Style for when the custom radio button is checked */
-  .add-on-radio:checked + .add-on-text + .custom-radio {
-    border-color: var(--primary-color);
-    background-color: var(--primary-color); /* Fill background when checked */
-  }
-  
-  /* Inner dot for the checked radio button */
-  .add-on-radio:checked + .add-on-text + .custom-radio::after {
-    content: '';
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: var(--background-white); /* Inner dot color */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: block;
-  }
-  
-  /* Hover effect for the custom radio button */
-  .add-on-label:hover .custom-radio {
-    border-color: var(--primary-color);
-  }
-  
+
   .add-on-text {
-    color:  var(--primary-color);
+    flex: 1; /* Allow text to take available space */
+    word-wrap: break-word; /* Allow long text to wrap */
+    margin-right: 8px; /* Space between text and radio button */
+    font-size: 14px; /* Reduced text font size for mobile */
   }
-  
-  .add-on-coming-soon{
-    background-color:#E8E8E8;
-    border-radius: 4px;
-    padding:4px;
-    font-size: 12px;
-    color:#7C7C7C;
-    position: absolute;
-    top:-10px
+
+  .section-title {
+    font-size: 16px; /* Reduced title for mobile */
+    margin-bottom: 16px;
+    line-height: 1.4; /* Better line height for readability */
   }
+}
+
+/* Hide the default radio button */
+.add-on-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: absolute;
+  opacity: 0;
+}
+
+/* Custom radio button styling */
+.custom-radio {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--border-light);
+  display: inline-block;
+  position: relative;
+  margin-left: auto; /* Push to the right */
+  transition: all 0.2s ease-in-out;
+  flex-shrink: 0; /* Prevent it from shrinking */
+}
+
+/* Style for when the custom radio button is checked */
+.add-on-radio:checked + .add-on-text + .custom-radio {
+  border-color: var(--primary-color);
+  background-color: var(--primary-color); /* Fill background when checked */
+}
+
+/* Inner dot for the checked radio button */
+.add-on-radio:checked + .add-on-text + .custom-radio::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--background-white); /* Inner dot color */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+}
+
+/* Hover effect for the custom radio button */
+.add-on-label:hover .custom-radio {
+  border-color: var(--primary-color);
+}
+
+.add-on-text {
+  color: var(--primary-color);
+}
+
+.add-on-coming-soon {
+  background-color: #e8e8e8;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 12px;
+  color: #7c7c7c;
+  position: absolute;
+  top: -10px;
+}

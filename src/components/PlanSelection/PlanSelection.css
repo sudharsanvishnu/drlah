@@ -1,16 +1,28 @@
 .plan-selection-section {
-    margin-bottom: 20px;
-  }
-  
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 22px;
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+}
+
+.plan-cards-container {
+  display: flex;
+  gap: 20px; /* Space between cards */
+  flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+}
+
+/* Mobile */
+@media (max-width: 768px) {
   .section-title {
-    font-size: 22px;
-    color: var(--secondary-color);
-    margin-bottom: 20px;
+    font-size: 16px; /* Reduced title for mobile */
+    margin-bottom: 16px;
   }
-  
+
   .plan-cards-container {
-    display: flex;
-    gap: 20px; /* Space between cards */
-    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+    flex-direction: column; /* Display plans in column one below another */
+    gap: 16px; /* Reduced gap for mobile */
   }
-  
+}
