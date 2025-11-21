@@ -15,7 +15,22 @@ const uiSlice = createSlice({
   initialState: createInitialUiState(),
   reducers: {
     setSelectedPlan(state, action) {
-      state.selectedPlanId = action.payload;
+      const newPlanId = action.payload;
+      const previousPlanId = state.selectedPlanId;
+
+      // If plan is actually changing (not just setting the same plan), clear related data
+      if (newPlanId !== previousPlanId && previousPlanId !== 0) {
+        // Clear card details when plan changes
+        state.cardDetails = {
+          cardNumber: "",
+          expiry: "",
+          cvc: "",
+        };
+        // Clear addon selection for the new plan (it will be set fresh)
+        delete state.selectedAddOns[newPlanId];
+      }
+
+      state.selectedPlanId = newPlanId;
     },
     setSelectedAddOn(state, action) {
       const { planId, addOnId } = action.payload || {};

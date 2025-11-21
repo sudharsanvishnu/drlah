@@ -18,7 +18,9 @@ function PlanSelection({ plans }) {
             plan={plan}
             isSelected={selectedPlan === plan.id}
             onSelect={() => {
+              // Only dispatch plan change - the Redux reducer will handle clearing addon and card details
               dispatch(setSelectedPlan(plan.id));
+              // Clear addon for this specific plan
               dispatch(
                 setSelectedAddOn({
                   planId: plan.id,

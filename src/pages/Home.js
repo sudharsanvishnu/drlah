@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar/Sidebar.js";
 import MainContent from "../components/MainContent/MainContent.js";
 import "../App.css";
@@ -41,6 +41,11 @@ function Home() {
       },
       { name: "Easy Access", completed: false, active: false },
     ];
+  }, [activeStep]);
+
+  // Scroll to top when step changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [activeStep]);
 
   const handleNextStep = () => {

@@ -9,6 +9,14 @@ const Footer = ({
   canGoBack = false,
 }) => {
   const cardDetails = useSelector((state) => state.ui.cardDetails);
+  const selectedPlan = useSelector((state) => state.ui.selectedPlanId);
+  const selectedAddOn = useSelector(
+    (state) => state.ui.selectedAddOns[state.ui.selectedPlanId]
+  );
+
+  // Plans 1, 2, 3 require addon selection
+  const shouldShowAddOns = [1, 2, 3].includes(Number(selectedPlan));
+  const isAddonSelectionRequired = shouldShowAddOns && selectedPlan !== 0;
 
   const hasCardDetails = useMemo(() => {
     if (!cardDetails) {
@@ -16,14 +24,31 @@ const Footer = ({
     }
 
     const { cardNumber, expiry, cvc } = cardDetails;
-    return Boolean(
-      cardNumber?.trim()?.length &&
-        expiry?.trim()?.length &&
-        cvc?.trim()?.length
-    );
+    
+    // Validate card number: should have 16 digits (after removing spaces)
+    const cardNumberDigits = cardNumber?.replace(/\s/g, "") || "";
+    const isValidCardNumber = cardNumberDigits.length === 16 && /^\d+$/.test(cardNumberDigits);
+    
+    // Validate expiry: should be in MM/YY format (5 characters)
+    const isValidExpiry = expiry?.trim()?.length === 5 && 
+      /^\d{2}\/\d{2}$/.test(expiry?.trim() || "");
+    
+    // Validate CVC: should be 3 or 4 digits
+    const isValidCvc = cvc?.trim()?.length >= 3 && 
+      cvc?.trim()?.length <= 4 && 
+      /^\d+$/.test(cvc?.trim() || "");
+    
+    return isValidCardNumber && isValidExpiry && isValidCvc;
   }, [cardDetails]);
 
-  const isNextDisabled = !hasCardDetails || !canGoNext;
+  const hasAddonSelection = useMemo(() => {
+    if (!isAddonSelectionRequired) {
+      return true; // Addon not required for this plan
+    }
+    return Boolean(selectedAddOn);
+  }, [isAddonSelectionRequired, selectedAddOn]);
+
+  const isNextDisabled = !hasCardDetails || !hasAddonSelection || !canGoNext;
   const isBackDisabled = !canGoBack;
 
   const handleNext = () => {

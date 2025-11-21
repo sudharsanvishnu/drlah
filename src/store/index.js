@@ -40,14 +40,17 @@ const loadState = () => {
     return {
       ui: {
         ...defaultState,
-        ...rawStoredState,
-        cardDetails: {
-          ...defaultState.cardDetails,
-          ...storedCardDetails,
-        },
+        selectedPlanId:
+          rawStoredState.selectedPlanId !== undefined
+            ? rawStoredState.selectedPlanId
+            : defaultState.selectedPlanId,
         selectedAddOns: {
           ...defaultState.selectedAddOns,
           ...(rawStoredState.selectedAddOns || {}),
+        },
+        cardDetails: {
+          ...defaultState.cardDetails,
+          ...storedCardDetails,
         },
       },
     };
